@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "People Management";
+}
+
+<div class="container">
+<div class="row" ng-cloak>
+    <div ng-controller="mvcCRUDController" class="sp">
+        
+            <br />
+            <p><b><i>People Table</i></b></p>
+            <table class="table table-striped">
+                <tr>
+                    <td><b>Id</b></td>
+                    <td><b>Name</b></td>
+                    <td><b>NickName</b></td>
+                </tr>
+                <tr ng-repeat="item in  peoples">
+                    <td>{{item.Id}}</td>
+                    <td>{{item.Name}}</td>
+                    <td>{{item.NickName}}</td>
+                </tr>
+            </table>
+
+   
+
+        <span ng-click="AddPeopleDiv()" class="btn btn-default  ">Add People</span>
+        <span ng-class="(IsValid) ? 'text-danger': 'text-success' ">{{result}}</span>
+        <div ng-show="divPeople">
+            <table class="table table-responsive">
+                <tr>
+                    <td><b><i>Add People</i></b></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td><b>Name</b></td>
+                    <td>
+                        <input type="text" ng-model="peopleName" placeholder="Name" required />
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><b>NickName</b></td>
+                    <td>
+                        <input ng-style="{'border-color':Color }" type="text" ng-model="peopleNickName" placeholder="NickName" required />
+                    </td>
+                    <td>
+                        <input type="button" value="Check" ng-click="CheckNickName()" />
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" class="btn btn-default" value="Save" ng-click="AddPeople()" />
+                        <input type="button" class="btn btn-danger" value="Cancel" ng-click="Cancel()" />
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+</div>
+ </div>
+
